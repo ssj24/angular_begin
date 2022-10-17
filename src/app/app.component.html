@@ -1,8 +1,8 @@
 <div class="container">
-  <h1 class="text-center">this is {{title}}.</h1>
-  <input type="text" [(ngModel)]="name">
-  <p>{{name}}</p>
-  
+  <h1 class="text-center border border-warning">this is {{title}}.</h1>
+  <input type="text" [(ngModel)]="username" #usernameInput>
+  <p>{{username}}</p>
+  <button [disabled]="!username" (click)="resetInput()">reset</button>
   <p>server</p>
   <div id="app-server"></div>
   
@@ -10,6 +10,11 @@
     <app-warning></app-warning>
     <div class="app-success"></div>
   </div>
-  <div class="border border-warning">dfsj</div>
 
+  <!-- directive practicing -->
+  
+  <button (click)="detailBtnClicked()" class="btn btn-outline-success">Display Details</button>
+  <p *ngIf="show; else noDetail">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+  <ng-template #noDetail><p>there's no detail</p></ng-template>
+  <p *ngFor="let log of btnLogs; let i = index" [ngStyle]="{border: getBorder(i)}" [ngClass]="{over5th: i>=5}">{{log}}</p>
 </div>
