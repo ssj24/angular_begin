@@ -6,8 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./server.component.css']
 })
 export class ServerComponent implements OnInit {
-
-  constructor() { }
+  person: object;
+  constructor() {
+    this.person = {
+      name: 'John doe',
+      age: 28
+    }
+   }
 
   ngOnInit(): void {
   }
