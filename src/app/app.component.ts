@@ -8,9 +8,18 @@ import { timestamp } from 'rxjs';
 })
 export class AppComponent {
   title = 'starter-app';
+  oddNum: number[] = [];
+  evenNum: number[] = [];
   username = 'tebah';
   show = false;
   btnLogs = [];
+  onIntervalFired(firedNumber: number, element: HTMLDivElement) {
+    if (firedNumber % 2) {
+      this.oddNum.push(firedNumber);
+    } else {
+      this.evenNum.push(firedNumber);
+    }
+  }
   resetInput() {
     this.username = '';
   }

@@ -1,5 +1,24 @@
 <div class="container">
   <h1 class="text-center border border-warning">this is {{title}}.</h1>
+  
+  <!-- game-control -->
+  <div class="m-5" #gameContainer>
+    <app-game-control
+      (intervalFired) = "onIntervalFired($event, gameContainer)"
+    >
+
+    </app-game-control>
+    <div class="row">
+      <app-odd *ngFor="let oddNumber of oddNum" [number]="oddNumber"></app-odd>
+      <app-even *ngFor="let evenNumber of evenNum" [number]="evenNumber"></app-even>
+    </div>
+  </div>
+
+
+
+
+
+
   <input type="text" [(ngModel)]="username" #usernameInput>
   <p>{{username}}</p>
   <button [disabled]="!username" (click)="resetInput()">reset</button>
@@ -17,4 +36,5 @@
   <p *ngIf="show; else noDetail">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
   <ng-template #noDetail><p>there's no detail</p></ng-template>
   <p *ngFor="let log of btnLogs; let i = index" [ngStyle]="{border: getBorder(i)}" [ngClass]="{over5th: i>=5}">{{log}}</p>
+
 </div>
